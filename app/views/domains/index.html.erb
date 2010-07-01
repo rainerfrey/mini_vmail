@@ -1,0 +1,21 @@
+<% title "Domains" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Notes</th>
+    <th>Active</th>
+  </tr>
+  <% for domain in @domains %>
+    <tr>
+      <td><%= domain.name %></td>
+      <td><%= domain.notes %></td>
+      <td><%= domain.active %></td>
+      <td><%= link_to "Show", domain %></td>
+      <td><%= link_to "Edit", edit_domain_path(domain) %></td>
+      <td><%= link_to "Destroy", domain, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Domain", new_domain_path %></p>
