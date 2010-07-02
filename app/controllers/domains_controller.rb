@@ -3,14 +3,17 @@ class DomainsController < ApplicationController
   
   def index
     @domains = Domain.all
+    respond_with @domains
   end
   
   def show
     @domain = Domain.find(params[:id])
+    respond_with @domain
   end
   
   def new
     @domain = Domain.new
+    respond_with @domain
   end
   
   def create
@@ -21,6 +24,7 @@ class DomainsController < ApplicationController
   
   def edit
     @domain = Domain.find(params[:id])
+    respond_with @domain
   end
   
   def update
@@ -33,6 +37,6 @@ class DomainsController < ApplicationController
     @domain = Domain.find(params[:id])
     @domain.destroy
     flash[:notice] = "Successfully destroyed domain."
-    redirect_to domains_url
+    respond_with @domain
   end
 end
