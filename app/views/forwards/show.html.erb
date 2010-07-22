@@ -1,0 +1,28 @@
+<% title Forward.model_name.human %>
+
+<p>
+  <strong><%= Forward.human_attribute_name("name") %>:</strong>
+  <%= @forward.name %>
+</p>
+<p>
+  <strong><%= Forward.human_attribute_name("destination") %>:</strong>
+  <%= @forward.destination %>
+</p>
+<p>
+  <strong><%= Forward.human_attribute_name("domain") %>:</strong>
+  <%= @forward.domain %>
+</p>
+<p>
+  <strong><%= Forward.human_attribute_name("active") %>:</strong>
+  <%= @forward.active %>
+</p>
+<p>
+  <strong><%= Forward.human_attribute_name("notes") %>:</strong>
+  <%= @forward.notes %>
+</p>
+
+<p>
+  <%= link_to t(:'actions.edit'), edit_forward_path(@forward) %> |
+  <%= link_to t(:'actions.delete'), @forward, :confirm =>  t(:'actions.confirmdelete'), :method => :delete %> |
+  <%= link_to t(:'title.forwards'), forwards_path %>
+</p>

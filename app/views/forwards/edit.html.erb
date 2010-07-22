@@ -1,0 +1,8 @@
+<% title t(:'resource.edit', :model => Forward.model_name.human) %>
+
+<%= render 'form' %>
+
+<p class="actions">
+  <%= link_to t(:'actions.show'), @forward %> |
+  <%= link_to t(:'title.domains'), forwards_path %>
+</p>

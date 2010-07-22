@@ -1,0 +1,28 @@
+<% title t(:'title.forwards') %>
+
+<table>
+  <thead>	
+  <tr>
+    <th><%= Forward.human_attribute_name("name") %></th>
+    <th><%= Forward.human_attribute_name("destination") %></th>
+    <th><%= Forward.human_attribute_name("active") %></th>
+    <th><%= Forward.human_attribute_name("created_by") %></th>
+    <th><%= Forward.human_attribute_name("updated_by") %></th>
+  </tr>
+  </thead>
+  <tbody>	
+  <% for forward in @forwards %>
+    <tr>
+      <td><%= link_to forward, forward %></td>
+      <td><%= forward.destination %></td>
+      <td><%= forward.active %></td>
+      <td><%= forward.created_by %></td>
+      <td><%= forward.updated_by %></td>
+      <td class="actions"><%= link_to t(:'actions.edit'), edit_forward_path(forward) %></td>
+      <td class="actions"><%= link_to t(:'actions.delete'), forward, :confirm => t(:'actions.confirmdelete'), :method => :delete %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<p class="actions"><%= link_to t(:'resource.new', :model => Forward.model_name.human), new_forward_path %></p>
