@@ -1,0 +1,19 @@
+<% title User.model_name.human %>
+
+<p>
+  <strong><%= User.human_attribute_name("login") %>:</strong>
+  <%= @user.login %>
+</p>
+<p>
+  <strong><%= User.human_attribute_name("email") %>:</strong>
+  <%= @user.email %>
+</p>
+<p>
+	<strong><%= User.human_attribute_name("notes") %>:</strong>
+	<%= @user.notes %>
+</p>
+<p class="actions">
+  <%= link_to t(:'actions.edit'), edit_user_path(@user) %> |
+  <%= link_to t(:'actions.delete'), @user, :confirm =>  t(:'actions.confirmdelete'), :method => :delete %> |
+  <%= link_to t(:'title.users'), users_path %>
+</p>

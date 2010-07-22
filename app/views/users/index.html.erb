@@ -1,0 +1,20 @@
+<% title t(:'title.users') %>
+
+<table>
+  <tr>
+    <th><%= User.human_attribute_name("login")%></th>
+    <th><%= User.human_attribute_name("email")%></th>
+    <th><%= User.human_attribute_name("admin")%></th>
+  </tr>
+  <% for user in @users %>
+    <tr>
+      <td><%= link_to user.login, user %></td>
+      <td><%= user.email %></td>
+      <td><%= user.admin %></td>
+      <td class="actions"><%= link_to t(:'actions.edit'), edit_user_path(user) %></td>
+      <td class="actions"><%= link_to t(:'actions.delete'), user, :confirm => t(:'actions.confirmdelete'), :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p class="actions"><%= link_to t(:'resource.new', :model => User.model_name.human), new_user_path %></p>
