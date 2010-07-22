@@ -1,0 +1,13 @@
+one:
+  name: MyString
+  password: MyString
+  domain: 
+  notes: MyText
+  active: false
+
+two:
+  name: MyString
+  password: MyString
+  domain: 
+  notes: MyText
+  active: false

@@ -1,0 +1,13 @@
+local:
+  name: test
+  destination: rainer
+  domain: home
+  active: true
+  notes: MyText
+
+remote:
+  name: test2
+  destination: rainer@mr-frey.de
+  domain: home
+  active: true
+  notes: MyText

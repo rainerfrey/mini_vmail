@@ -1,0 +1,9 @@
+admin:
+  login: admin
+  email: admin@admin
+  admin: true
+
+user:
+  login: rainer
+  email: rainer@rainer
+  admin: false

@@ -1,9 +1,20 @@
-one:
-  name: MyString
+home:
+  name: home.mr-frey.de
+  notes: MyText
+  active: true
+
+test:
+  name: test.mr-frey.de
   notes: MyText
   active: false
 
-two:
-  name: MyString
-  notes: MyText
-  active: false
+blank:
+    name: 
+    notes: MyText
+    active: false
+    
+duplicate:
+    name: home.mr-frey.de
+    notes: MyText
+    active: true
+    
