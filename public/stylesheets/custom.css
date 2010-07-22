@@ -1,0 +1,52 @@
+thead {
+	text-align: left;
+}
+
+td,th {
+	padding-right: 10px;
+}
+table {
+	margin-bottom: 15px;
+}
+.actions {
+	font-size: smaller;
+	font-stretch: narrower;
+}
+.field_with_errors {
+  padding: 2px;
+  border: 2px solid #CF0000;
+  display: table;
+}
+#error_messages {
+  width: 450px;
+  border: 2px solid #CF0000;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  font-size: 12px;
+}
+
+#error_messages h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 1.4em;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+}
+
+#error_messages p {
+  margin: 8px 10px;
+}
+
+
+#error_messages ul {
+  margin: 0;
+}
+
+#error_messages ul li {
+  font-size: 12px;
+}
+
