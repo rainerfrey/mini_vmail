@@ -1,5 +1,24 @@
 MiniVmail::Application.routes.draw do |map|
+  match "login" => 'user_sessions#new', :as => :login
+  match "logout" => 'user_sessions#destroy', :as => :logout
+
+  resource :user_session
+
+  resources :users
+
+  resources :forwards
+
+  resources :mailboxes
+
   resources :domains
+
+  get "welcome/index"
+
+  get "welcome/initial_login"
+
+  post "welcome/create_initial_login"
+  
+  root :to => "welcome#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
