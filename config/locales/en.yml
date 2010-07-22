@@ -2,4 +2,58 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+    title:
+        home: "Home"
+        domains: "Domains"
+        mailboxes: "Mailboxes"
+        forwards: "Forwards"
+        user_sessions: "Log in"
+        users: "Users"
+        welcome:
+            initial_login: "Create Administrator account"
+    actions:
+        show: "Show"
+        edit: "Edit"
+        delete: "Delete"
+        confirmdelete: "Are you sure?"
+        login: "Log in"
+        logout: "Log out \"%{user}\""
+    resource:
+        new: "New %{model}"
+        edit: "Edit %{model}"
+        created: "Successfully created %{model}."
+        updated: "Successfully updated %{model}."
+        destroyed: "Successfully destroyed %{model}."
+    activerecord:
+        attributes:
+            mailbox:
+                my_password: "Password"
+                my_password_confirmation: "Confirm password"
+            forward:
+                destination: "Forward to"
+            user:
+                password_confirmation: "Confirm password"
+        errors:
+            template:
+                header:
+                  one:    "Could not save this %{model}: one error."
+                  other:  "Could not save this %{model}: %{count} errors."
+                body: "Please check the follwing fields:"
+    messages:
+        adminrequired: "Administrator rights needed!"
+        welcome:
+            initial_login: "Creating initial Administrator account."
+            initial_login_created: "Initial Administrator account created. Now you can create more users."
+            initial_login_exists: "The initial Administrator account already exists. Use the user management pages to configure more users."
+    helpers:
+        submit:
+            user_session:
+               create: "Log in"
+    administrator:
+       defaults:
+           login: "admin"
+           notes: "Initial Administrator account for user management. It is recommended to create more users for management of mail server data."
+
+
+        
+

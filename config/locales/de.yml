@@ -1,0 +1,75 @@
+de:
+    title:
+        home: "Home"
+        domains: "Domains"
+        mailboxes: "Postfächer"
+        forwards: "Weiterleitungen"
+        user_sessions: "Anmelden"
+        users: "Benutzer"
+        welcome:
+            initial_login: "Administrator-Account erstellen"
+    actions:
+        show: "Anzeigen"
+        edit: "Bearbeiten"
+        delete: "Löschen"
+        confirmdelete: "Wirklich löschen?"
+        login: "Anmelden"
+        logout: "\"%{user}\" abmelden"
+    resource:
+        new: "%{model} erstellen"
+        edit: "%{model} bearbeiten"
+        created: "%{model} erstellt."
+        updated: "%{model} gespeichert."
+        destroyed: "%{model} gelöscht."
+    activerecord:
+        models:
+            domain: "Domain"
+            mailbox: "Postfach"
+            forward: "Weiterleitung"
+            user: "Benutzer"
+        attributes:
+            domain:
+                active: "Aktiv"
+                notes: "Bemerkungen"
+                created_by: "Erstellt von"
+                updated_by: Zuletzt geändert von
+            mailbox:
+                active: "Aktiv"
+                notes: "Bemerkungen"
+                my_password: "Passwort"
+                my_password_confirmation: "Passwort bestätigen"
+                created_by: "Erstellt von"
+                updated_by: Zuletzt geändert von
+            forward:
+                active: "Aktiv"
+                notes: "Bemerkungen"
+                destination: "Weiterleiten an"
+                created_by: "Erstellt von"
+                updated_by: Zuletzt geändert von
+            user:
+                notes: "Bemerkungen"
+                password: "Passwort"
+                password_confirmation: "Passwort bestätigen"
+    authlogic:
+        attributes:
+            user_session:
+                login: "Name"
+                password: "Passwort"
+    helpers:
+        submit:
+            create: "%{model} erstellen"
+            update: "%{model} speichern"
+            user_session:
+                create: "Anmelden"
+    messages:
+        adminrequired: "Es werden Administrator-Rechte benötigt!"
+        welcome:
+            initial_login: "Der Adminstrator-Account wird jetzt erstellt."
+            initial_login_created: "Der Administrator-Account wurde erstellt. Jetzt können weitere Benutzer erstellt werden."
+            initial_login_exists: "Es existiert bereits ein Administrator-Account. Mit der Benutzerverwaltung können weitere Benutzer angelegt werden."
+    administrator:
+        defaults:
+            login: "admin"
+            notes: "Administrator-Account für die Verwaltung von Benutzern. Es wird empfohlen, für die Verwaltung der Mailserver-daten weitere Nutzer anzulegen."
+
+        
