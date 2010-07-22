@@ -1,0 +1,24 @@
+<% title Mailbox.model_name.human %>
+
+<p>
+  <strong><%= Mailbox.human_attribute_name("name") %>:</strong>
+  <%= @mailbox.name %>
+</p>
+<p>
+  <strong><%= Mailbox.human_attribute_name("domain") %>:</strong>
+  <%= @mailbox.domain %>
+</p>
+<p>
+  <strong><%= Mailbox.human_attribute_name("notes") %>:</strong>
+  <%= @mailbox.notes %>
+</p>
+<p>
+  <strong><%= Mailbox.human_attribute_name("active") %>:</strong>
+  <%= @mailbox.active %>
+</p>
+
+<p class="actions">
+  <%= link_to t(:'actions.edit'), edit_mailbox_path(@mailbox) %> |
+  <%= link_to t(:'actions.delete'), @mailbox, :confirm => t(:'actions.confirmdelete'), :method => :delete %> |
+  <%= link_to t(:'title.mailboxes'), mailboxes_path %>
+</p>

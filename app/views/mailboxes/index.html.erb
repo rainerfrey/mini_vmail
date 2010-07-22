@@ -1,0 +1,26 @@
+<% title t(:'title.mailboxes') %>
+
+<table>
+<thead>
+  <tr>
+    <th><%= Mailbox.human_attribute_name("name") %></th>
+    <th><%= Mailbox.human_attribute_name("active") %></th>
+    <th><%= Mailbox.human_attribute_name("created_by") %></th>
+    <th><%= Mailbox.human_attribute_name("updated_by") %></th>
+  </tr>
+</thead>
+<tbody>
+  <% for mailbox in @mailboxes %>
+    <tr>
+      <td><%= link_to mailbox, mailbox %></td>
+      <td><%= mailbox.active %></td>
+      <td><%= mailbox.created_by %></td>
+      <td><%= mailbox.updated_by %></td>
+      <td class="actions"><%= link_to t(:'actions.edit'), edit_mailbox_path(mailbox) %></td>
+      <td class="actions"><%= link_to t(:'actions.delete'), mailbox, :confirm => t(:'actions.confirmdelete'), :method => :delete %></td>
+    </tr>
+  <% end %>
+</tbody>
+</table>
+
+<p class="actions"><%= link_to  t(:'resource.new', :model => Mailbox.model_name.human), new_mailbox_path %></p>

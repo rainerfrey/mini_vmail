@@ -1,0 +1,28 @@
+<%= form_for @mailbox do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :domain %><br />
+    <%= f.collection_select :domain_id, @domains, :id, :name %>
+  </p>
+  <p>
+    <%= f.label :my_password %><br />
+    <%= f.password_field :my_password %>
+  </p>
+  <p>
+    <%= f.label :my_password_confirmation %><br />
+    <%= f.password_field :my_password_confirmation %>
+  </p>
+  <p>
+    <%= f.label :active %><br />
+    <%= f.check_box :active %>
+  </p>
+  <p>
+    <%= f.label :notes %><br />
+    <%= f.text_area :notes %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>
