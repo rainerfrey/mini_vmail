@@ -1,8 +1,9 @@
 class DomainsController < ApplicationController
   respond_to :html,:xml,:json
+  before_filter :require_user
   
   def index
-    @domains = Domain.all
+    @domains = Domain.ordered
     respond_with @domains
   end
   
@@ -18,7 +19,8 @@ class DomainsController < ApplicationController
   
   def create
     @domain = Domain.new(params[:domain])
-    flash[:notice] = "Successfully created domain." if @domain.save
+    set_modificator @domain
+    flash[:notice] = I18n.t(:'resource.created', :model=> Domain.model_name.human) if @domain.save
     respond_with @domain  
   end
   
@@ -29,14 +31,15 @@ class DomainsController < ApplicationController
   
   def update
     @domain = Domain.find(params[:id])
-    flash[:notice] = "Successfully updated domain." if @domain.update_attributes(params[:domain])
+    set_modificator @domain
+    flash[:notice] = I18n.t(:'resource.updated', :model=> Domain.model_name.human) if @domain.update_attributes(params[:domain])
     respond_with @domain  
   end
   
   def destroy
     @domain = Domain.find(params[:id])
     @domain.destroy
-    flash[:notice] = "Successfully destroyed domain."
+    flash[:notice] = I18n.t(:'resource.destroyed', :model=> Domain.model_name.human)
     respond_with @domain
   end
 end

@@ -1,21 +1,26 @@
-<% title "Domains" %>
+<% title t(:'title.domains') %>
 
 <table>
+  <thead>
   <tr>
-    <th>Name</th>
-    <th>Notes</th>
-    <th>Active</th>
+    <th><%= Domain.human_attribute_name("name") %></th>
+    <th><%= Domain.human_attribute_name("active") %></th>
+    <th><%= Domain.human_attribute_name("created_by") %></th>
+    <th><%= Domain.human_attribute_name("updated_by") %></th>
   </tr>
+  </thead>
+  <tbody>
   <% for domain in @domains %>
     <tr>
-      <td><%= domain.name %></td>
-      <td><%= domain.notes %></td>
+      <td><%= link_to domain.name, domain %></td>
       <td><%= domain.active %></td>
-      <td><%= link_to "Show", domain %></td>
-      <td><%= link_to "Edit", edit_domain_path(domain) %></td>
-      <td><%= link_to "Destroy", domain, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= domain.created_by %></td>
+      <td><%= domain.updated_by %></td>
+      <td class="actions"><%= link_to t(:'actions.edit'), edit_domain_path(domain) %></td>
+      <td class="actions"><%= link_to t(:'actions.delete'), domain, :confirm => t(:'actions.confirmdelete'), :method => :delete %></td>
     </tr>
   <% end %>
+  </tbody>
 </table>
 
-<p><%= link_to "New Domain", new_domain_path %></p>
+<p class="actions"><%= link_to t(:'resource.new', :model => Domain.model_name.human), new_domain_path %></p>

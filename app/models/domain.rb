@@ -1,3 +1,12 @@
 class Domain < ActiveRecord::Base
-  attr_accessible :name, :notes, :active
+  has_many :mailboxes
+  has_many :forwards
+  
+  validates :name, :presence => true, :uniqueness => true
+  scope :active, where(:active => true)
+  scope :ordered, order(:active)
+  
+  def to_s
+    name
+  end
 end

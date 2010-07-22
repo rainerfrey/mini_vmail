@@ -1,8 +1,8 @@
-<% title "Edit Domain" %>
+<% title t(:'resource.edit', :model => Domain.model_name.human) %>
 
 <%= render 'form' %>
 
-<p>
-  <%= link_to "Show", @domain %> |
-  <%= link_to "View All", domains_path %>
+<p class="actions">
+  <%= link_to t(:'actions.show'), @domain %> |
+  <%= link_to t(:'title.domains'), domains_path %>
 </p>

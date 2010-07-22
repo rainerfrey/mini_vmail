@@ -1,20 +1,20 @@
-<% title "Domain" %>
+<% title Domain.model_name.human %>
 
 <p>
-  <strong>Name:</strong>
+  <strong><%= Domain.human_attribute_name("name") %>:</strong>
   <%= @domain.name %>
 </p>
 <p>
-  <strong>Notes:</strong>
+  <strong><%= Domain.human_attribute_name("notes") %>:</strong>
   <%= @domain.notes %>
 </p>
 <p>
-  <strong>Active:</strong>
+  <strong><%= Domain.human_attribute_name("active") %>:</strong>
   <%= @domain.active %>
 </p>
 
-<p>
-  <%= link_to "Edit", edit_domain_path(@domain) %> |
-  <%= link_to "Destroy", @domain, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", domains_path %>
+<p class="actions">
+  <%= link_to t(:'actions.edit'), edit_domain_path(@domain) %> |
+  <%= link_to t(:'actions.delete'), @domain, :confirm => t(:'actions.confirmdelete'), :method => :delete %> |
+  <%= link_to t(:'title.domains'), domains_path %>
 </p>
