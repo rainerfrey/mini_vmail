@@ -1,6 +1,5 @@
 local:
   name: test
-  destination: rainer
   domain: home
   active: true
   notes: MyText
