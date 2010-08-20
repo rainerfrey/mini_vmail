@@ -22,4 +22,4 @@ production:
     database: mini_vmail
     pool: 5
     username: mini_vmail
-    password:
+    password: vmail
