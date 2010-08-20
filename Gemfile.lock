@@ -1,8 +1,3 @@
-PATH
-  remote: /Users/rainer/Projects/rails/src/nifty-generators
-  specs:
-    nifty-generators (0.4.0)
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -57,17 +52,18 @@ GEM
       mime-types
       treetop (>= 1.4.5)
     mime-types (1.16)
-    net-scp (1.0.2)
+    net-scp (1.0.3)
       net-ssh (>= 1.99.1)
-    net-sftp (2.0.4)
+    net-sftp (2.0.5)
       net-ssh (>= 2.0.9)
     net-ssh (2.0.23)
     net-ssh-gateway (1.0.1)
       net-ssh (>= 1.99.1)
+    nifty-generators (0.4.0.1)
     pg (0.9.0)
     polyglot (0.3.1)
     rack (1.2.1)
-    rack-mount (0.6.9)
+    rack-mount (0.6.10)
       rack (>= 1.0.0)
     rack-test (0.5.4)
       rack (>= 1.0)
@@ -93,7 +89,7 @@ GEM
     thor (0.14.0)
     treetop (1.4.8)
       polyglot (>= 0.3.1)
-    tzinfo (0.3.22)
+    tzinfo (0.3.23)
 
 PLATFORMS
   ruby
@@ -102,7 +98,7 @@ DEPENDENCIES
   authlogic
   capistrano
   capistrano_rsync_with_remote_cache
-  nifty-generators!
+  nifty-generators (= 0.4.0.1)
   pg
   rails (= 3.0.0.rc)
   sqlite3-ruby

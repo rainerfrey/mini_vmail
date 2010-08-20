@@ -1,7 +1,8 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.0.rc'
-gem 'nifty-generators', :path => '/Users/rainer/Projects/rails/src/nifty-generators'
+#gem 'nifty-generators', :path => '/Users/rainer/Projects/rails/src/nifty-generators'
+gem 'nifty-generators', '0.4.0.1'
 gem 'authlogic'
 group :development do
 	gem 'sqlite3-ruby', :require => 'sqlite3'
