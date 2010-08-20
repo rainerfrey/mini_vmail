@@ -4,7 +4,7 @@ class Domain < ActiveRecord::Base
   
   validates :name, :presence => true, :uniqueness => true
   scope :active, where(:active => true)
-  scope :ordered, order(:active)
+  scope :ordered, order("active DESC")
   
   def to_s
     name

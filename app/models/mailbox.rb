@@ -1,7 +1,7 @@
 class Mailbox < ActiveRecord::Base
   belongs_to :domain
   scope :active, where(:active => true)
-  scope :ordered, order(:active)
+  scope :ordered, order("active DESC")
   
   validates_presence_of :name, :password, :domain_id
   validates_uniqueness_of :name, :scope => :domain_id
