@@ -1,4 +1,4 @@
-MiniVmail::Application.routes.draw do |map|
+MiniVmail::Application.routes.draw do
   match "login" => 'user_sessions#new', :as => :login
   match "logout" => 'user_sessions#destroy', :as => :logout
 
