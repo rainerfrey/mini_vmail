@@ -1,4 +1,8 @@
 MiniVmail::Application.routes.draw do
+  get "downloads/index"
+
+  get "downloads/relay_domains"
+
   match "login" => 'user_sessions#new', :as => :login
   match "logout" => 'user_sessions#destroy', :as => :logout
 
