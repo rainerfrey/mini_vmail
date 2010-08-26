@@ -1,0 +1,13 @@
+defaults: &defaults
+    domain_transport: lmtp:unix:private/lmtp
+    relay_domains_file: relay_domains
+    virtual_alias_file: _virtual_alias.cf
+    
+development:
+    <<: *defaults
+
+test:
+    <<: *defaults
+
+production:
+    <<: *defaults    
