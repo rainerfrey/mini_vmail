@@ -54,6 +54,6 @@ class ApplicationController < ActionController::Base
   end
   
   def locale_workaround
-    I18n.locale = I18n.default_locale if Rails.env == :production
+    I18n.locale = I18n.default_locale if Rails.env == "production"
   end
 end
