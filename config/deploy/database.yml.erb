@@ -17,10 +17,10 @@ test:
 
 
 production:
-	host: <%= db_host %>
     adapter: postgresql
     encoding: unicode
     database: mini_vmail
     pool: 5
     username: mini_vmail
     password: <%= db_password %>
+	host: <%= db_host %>
