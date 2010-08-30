@@ -2,6 +2,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   layout 'application'
   
+  before_filter :locale_workaround
+  
   helper_method :current_user
 
   private
@@ -51,4 +53,7 @@ class ApplicationController < ActionController::Base
     model.send("#{method}d_by=", user.login) if user
   end
   
+  def locale_workaround
+    I18n.locale = I18n.default_locale if Rails.env == :production
+  end
 end
