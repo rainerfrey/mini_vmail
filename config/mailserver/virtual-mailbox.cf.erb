@@ -1,0 +1,5 @@
+hosts = <%= host ? host : "localhost" %>
+<%= "user = #{user}\n" unless user.blank? %>
+<%= "password = #{password}\n" unless password.blank? %> 
+<%= db_param %> = <%= database %>
+query = SELECT u.name FROM mailboxes u JOIN domains d on u.domain_id=d.id WHERE u.active=TRUE AND d.active=TRUE AND u.name = '%u' AND d.name = '%d'

@@ -8,6 +8,11 @@ de:
         users: "Benutzer"
         welcome:
             initial_login: "Administrator-Account erstellen"
+    link:
+        dl:
+            relay_domains: "Relay Domains"
+            virtual_mailboxes: "Virtual Mailbox Map SQL Konfiguration"
+            dovecot_auth: "Dovecot PassDB Konfiguration"
     actions:
         show: "Anzeigen"
         edit: "Bearbeiten"

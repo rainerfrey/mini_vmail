@@ -11,6 +11,11 @@ en:
         users: "Users"
         welcome:
             initial_login: "Create Administrator account"
+    link:
+        dl:
+            relay_domains: "Relay Domains Map"
+            virtual_mailboxes: "Virtual Mailbox Map SQL config"
+            dovecot_auth: "Dovecot PassDB config"
     actions:
         show: "Show"
         edit: "Edit"

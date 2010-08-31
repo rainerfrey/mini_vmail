@@ -1,2 +1,6 @@
-<h1>Downloads#index</h1>
-<p>Find me in app/views/downloads/index.html.erb</p>
+<% title t(:'title.downloads') %>
+<ul>
+	<li><%= link_to t(:'link.dl.relay_domains'), { :action => "relay_domains" } %></li>
+	<li><%= link_to t(:'link.dl.virtual_mailboxes'), { :action => "virtual_mailboxes" } %></li>
+	<li><%= link_to t(:'link.dl.dovecot_auth'), { :action => "dovecot_auth" } %></li>
+</ul>
