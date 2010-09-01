@@ -49,4 +49,8 @@ class DownloadsController < ApplicationController
     template = ERB.new(File.read(path))
     send_data template.result(binding), :filename => file, :type => "text/plain"
   end
+  
+  def request_auth
+    request_http_basic_authentication
+  end
 end
