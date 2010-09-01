@@ -1,0 +1,8 @@
+<%= "hosts = #{host}" unless host.blank? %>
+<%= "user = #{user}" unless user.blank? %>
+<%= "password = #{password}" unless password.blank? %> 
+<%= db_param %> = <%= database %>
+query = SELECT d.name FROM domains d WHERE d.active=TRUE AND d.name='%s'
+
+# include in main.cf with:
+# virtual_mailbox_domains = proxy:<%= db_type %>:${config_directory}/virtual_mailbox_domains.cf

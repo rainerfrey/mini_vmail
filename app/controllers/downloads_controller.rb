@@ -20,6 +20,10 @@ class DownloadsController < ApplicationController
     send_config_file "virtual-mailbox.cf"
   end
 
+  def virtual_mailbox_domains
+    send_config_file "virtual-mailbox-domains.cf"
+  end
+
   def dovecot_auth
     send_config_file "dovecot-sql.conf"
   end
@@ -31,11 +35,15 @@ class DownloadsController < ApplicationController
     db_config = ActiveRecord::Base.configurations[Rails.env]
     db_type =  DB_TYPES[db_config["adapter"]]
     db_param = db_type == "sqlite" ? "dbpath" : "dbname"
+    default_host = db_type == "sqlite" ? nil : "localhost"
     
     database = db_config["database"]
+    if db_type == "sqlite"
+      database = Rails.root + database unless database.start_with? "/"
+    end
     user=db_config["username"]||nil
     password=db_config["password"]||nil
-    host=db_config["host"] || nil
+    host=db_config["host"] || default_host
     
     path=Rails.root + "config/mailserver/#{file}.erb"
     template = ERB.new(File.read(path))

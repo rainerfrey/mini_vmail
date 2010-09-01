@@ -1,7 +1,10 @@
 # Database driver: mysql, pgsql, sqlite
 driver = <%= db_type %>
+<% if db_type == "sqlite" %>
+connect = <%= database %>
+<% else %>
 connect = <%= "host=#{host}" unless host.blank? %> dbname=<%= database %> <%= "user=#{user}" unless user.blank? %> <%= "pass=#{password}" unless password.blank? %> 
-
+<% end %>
 default_pass_scheme = Plain
 
 password_query = SELECT u.password as password FROM mailboxes u JOIN domains d on u.domain_id=d.id WHERE u.active=TRUE AND d.active=TRUE AND u.name = '%n' AND d.name = '%d'

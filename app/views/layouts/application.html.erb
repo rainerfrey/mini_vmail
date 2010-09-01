@@ -22,6 +22,7 @@
 		<%= link_to t(:'title.domains'), domains_path %>
 		<%= link_to t(:'title.mailboxes'), mailboxes_path %>
 		<%= link_to t(:'title.forwards'), forwards_path %>
+		<%= link_to t(:'title.downloads'), :controller => "downloads" %>
 		<% if current_user %>
 			<%= link_to t(:'title.users'), users_path if current_user.admin %>
 			<%= link_to t(:'actions.logout', :user =>current_user), logout_path %>
@@ -36,6 +37,7 @@
 
 <div id="extras">
 	<%= render :partial => 'shared/extras' %>
+	<%= render :partial => 'shared/downloads' %>
 	
 	<h2>Links</h2>
 	<ul>

@@ -3,6 +3,7 @@ MiniVmail::Application.routes.draw do
 
   get "downloads/relay_domains"
   get "downloads/virtual_mailboxes"
+  get "downloads/virtual_mailbox_domains"
   get "downloads/dovecot_auth"
 
   match "login" => 'user_sessions#new', :as => :login

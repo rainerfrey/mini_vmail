@@ -1,5 +1,8 @@
-hosts = <%= host ? host : "localhost" %>
-<%= "user = #{user}\n" unless user.blank? %>
-<%= "password = #{password}\n" unless password.blank? %> 
+<%= "hosts = #{host}" unless host.blank? %>
+<%= "user = #{user}" unless user.blank? %>
+<%= "password = #{password}" unless password.blank? %> 
 <%= db_param %> = <%= database %>
 query = SELECT u.name FROM mailboxes u JOIN domains d on u.domain_id=d.id WHERE u.active=TRUE AND d.active=TRUE AND u.name = '%u' AND d.name = '%d'
+
+# include in main.cf with:
+# virtual_mailbox_maps = proxy:<%= db_type %>:${config_directory}/virtual_mailbox.cf
