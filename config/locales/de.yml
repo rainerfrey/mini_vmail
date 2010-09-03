@@ -12,6 +12,7 @@ de:
     link:
         dl:
             relay_domains: "Postfix Relay Domain Map-Datei"
+            virtual_aliases: "Postfix Virtual Alias Map SQL-Konfiguration"
             virtual_mailboxes: "Postfix Virtual Mailbox Map SQL-Konfiguration"
             virtual_mailbox_domains: "Postfix Virtual Mailbox Domain Map SQL-Konfiguration"
             dovecot_auth: "Dovecot PassDB Konfiguration"

@@ -1,6 +1,7 @@
 <h2><%= t(:'title.downloads') %></h2>
 <ul>
 	<li><%= link_to t(:'link.dl.relay_domains'), { :controller => "downloads", :action => "relay_domains" } %></li>
+	<li><%= link_to t(:'link.dl.virtual_aliases'), { :controller => "downloads", :action => "virtual_aliases" } %></li>
 	<li><%= link_to t(:'link.dl.virtual_mailboxes'), { :controller => "downloads", :action => "virtual_mailboxes" } %></li>
 	<li><%= link_to t(:'link.dl.virtual_mailbox_domains'), { :controller => "downloads", :action => "virtual_mailbox_domains" } %></li>
 	<li><%= link_to t(:'link.dl.dovecot_auth'), { :controller => "downloads", :action => "dovecot_auth" } %></li>

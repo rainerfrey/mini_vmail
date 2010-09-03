@@ -1,0 +1,8 @@
+<%= "hosts = #{host}" unless host.blank? %>
+<%= "user = #{user}" unless user.blank? %>
+<%= "password = #{password}" unless password.blank? %> 
+<%= db_param %> = <%= database %>
+query = SELECT f.destination FROM forwards f JOIN domains d on f.domain_id=d.id WHERE f.active=TRUE AND d.active=TRUE AND f.name = '%u' AND d.name = '%d'
+
+# include in main.cf with:
+# virtual_alias_maps = proxy:<%= db_type %>:${config_directory}/virtual_alias.cf

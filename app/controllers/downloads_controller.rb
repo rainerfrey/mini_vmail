@@ -1,31 +1,35 @@
 require 'erb'
 
 class DownloadsController < ApplicationController
-  before_filter :require_user
+  before_filter :require_admin, :except => :index
 
   def index
   end
 
   def relay_domains
     domains = Domain.active
-    transport = APP_CONFIG[:domain_transport]
+    transport = APP_CONFIG[:relay_transport]
     domain_file = ""
     domains.each do |domain|
       domain_file << "#{domain}\t#{transport}\n"
     end
-    send_data domain_file, :filename => "relay_domains", :type => "text/plain"
+    send_data domain_file, :filename => file_key, :type => "text/plain"
+  end
+
+  def virtual_aliases
+    send_config_file file_key
   end
   
   def virtual_mailboxes
-    send_config_file "virtual-mailbox.cf"
+    send_config_file file_key
   end
 
   def virtual_mailbox_domains
-    send_config_file "virtual-mailbox-domains.cf"
+    send_config_file file_key
   end
 
   def dovecot_auth
-    send_config_file "dovecot-sql.conf"
+    send_config_file file_key
   end
   
   private
@@ -52,5 +56,9 @@ class DownloadsController < ApplicationController
   
   def request_auth
     request_http_basic_authentication
+  end
+  
+  def file_key
+    APP_CONFIG["#{action_name}_file".to_sym]
   end
 end
