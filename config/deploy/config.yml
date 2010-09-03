@@ -8,10 +8,11 @@ defaults: &defaults
     
 development:
     <<: *defaults
+    
 
 test:
     <<: *defaults
 
 production:
     <<: *defaults
-    relay_transport:  dovecot:  
+    relay_transport:  dovecot:
