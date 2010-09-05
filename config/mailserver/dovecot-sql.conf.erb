@@ -3,7 +3,7 @@ driver = <%= db_type %>
 <% if db_type == "sqlite" %>
 connect = <%= database %>
 <% else %>
-connect = <%= "host=#{host}" unless host.blank? %> dbname=<%= database %> <%= "user=#{user}" unless user.blank? %> <%= "pass=#{password}" unless password.blank? %> 
+connect = <%= "host=#{host}" unless host.blank? %> dbname=<%= database %> <%= "user=#{user}" unless user.blank? %> <%= "password=#{password}" unless password.blank? %> 
 <% end %>
 default_pass_scheme = Plain
 
