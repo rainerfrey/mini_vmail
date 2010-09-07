@@ -4,6 +4,7 @@
   <thead>
   <tr>
     <th><%= Domain.human_attribute_name("name") %></th>
+    <th><%= Domain.human_attribute_name("transport") %></th>
     <th><%= Domain.human_attribute_name("active") %></th>
     <th><%= Domain.human_attribute_name("created_by") %></th>
     <th><%= Domain.human_attribute_name("updated_by") %></th>
@@ -13,6 +14,7 @@
   <% for domain in @domains %>
     <tr>
       <td><%= link_to domain.name, domain %></td>
+      <td><%= domain.transport %></td>
       <td><%= domain.active %></td>
       <td><%= domain.created_by %></td>
       <td><%= domain.updated_by %></td>

@@ -34,6 +34,8 @@ en:
         destroyed: "Successfully destroyed %{model}."
     activerecord:
         attributes:
+            domain:
+                transport: "mail transport"
             mailbox:
                 my_password: "Password"
                 my_password_confirmation: "Confirm password"

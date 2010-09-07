@@ -37,6 +37,7 @@ de:
             user: "Benutzer"
         attributes:
             domain:
+                transport: "Mail-Transport"
                 active: "Aktiv"
                 notes: "Bemerkungen"
                 created_by: "Erstellt von"

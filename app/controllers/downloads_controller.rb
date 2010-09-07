@@ -11,6 +11,7 @@ class DownloadsController < ApplicationController
     transport = APP_CONFIG[:relay_transport]
     domain_file = ""
     domains.each do |domain|
+      transport = domain.transport if domain.transport
       domain_file << "#{domain}\t#{transport}\n"
     end
     send_data domain_file, :filename => file_key, :type => "text/plain"
