@@ -14,6 +14,7 @@ class DomainsController < ApplicationController
   
   def new
     @domain = Domain.new
+    @domain.transport = APP_CONFIG[:relay_transport]
     respond_with @domain
   end
   
