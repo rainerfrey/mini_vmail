@@ -1,5 +1,5 @@
 defaults: &defaults
-    relay_transport: lmtp:unix:private/lmtp
+    relay_transport: lmtp:unix:/var/run/dovecot/lmtp
     relay_domains_file: relay_domains
     virtual_aliases_file: virtual_alias.cf
     virtual_mailboxes_file: virtual_mailbox.cf
@@ -15,4 +15,4 @@ test:
 
 production:
     <<: *defaults
-    relay_transport:  dovecot:
+#    relay_transport:  dovecot:
