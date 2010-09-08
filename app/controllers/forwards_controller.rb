@@ -4,7 +4,7 @@ class ForwardsController < ApplicationController
   before_filter :set_select_domains, :only => [:new, :create, :edit, :update]
 
   def index
-    @forwards = Forward.ordered
+    @forwards = Forward.includes(:domain).ordered
     respond_with @forwards
   end
   

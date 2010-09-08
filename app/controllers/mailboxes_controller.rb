@@ -4,7 +4,7 @@ class MailboxesController < ApplicationController
   before_filter :set_select_domains, :only => [:new, :create, :edit, :update]
   
   def index
-    @mailboxes = Mailbox.ordered
+    @mailboxes = Mailbox.includes(:domain).ordered
     respond_with @mailboxes
   end
   
