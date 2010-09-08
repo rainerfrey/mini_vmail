@@ -1,6 +1,6 @@
 class DomainsController < ApplicationController
   respond_to :html,:xml,:json
-  before_filter :require_user
+  before_filter :require_admin
   
   def index
     @domains = Domain.ordered

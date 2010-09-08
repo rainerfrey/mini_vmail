@@ -19,7 +19,7 @@
 
 	<div id="menu">
 		<%= link_to t(:'title.home'), root_path %>
-		<%= link_to t(:'title.domains'), domains_path %>
+		<%= link_to t(:'title.domains'), domains_path if current_user.try(:admin) %>
 		<%= link_to t(:'title.mailboxes'), mailboxes_path %>
 		<%= link_to t(:'title.forwards'), forwards_path %>
 		<%= link_to t(:'title.downloads'), :controller => "downloads" %>
