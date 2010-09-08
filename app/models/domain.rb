@@ -6,7 +6,7 @@ class Domain < ActiveRecord::Base
   validates_presence_of :transport
   
   scope :active, where(:active => true)
-  scope :ordered, order("active DESC")
+  scope :ordered, order("active DESC, name ASC")
   
   def to_s
     name

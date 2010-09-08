@@ -6,7 +6,7 @@ class Forward < ActiveRecord::Base
   validates_presence_of :name, :domain_id, :destination  
   
   scope :active, where(:active => true)
-  scope :ordered, order("active DESC")
+  scope :ordered, order("active DESC, name ASC")
   def to_s
     domain ? "#{name}@#{domain}" : name
   end
