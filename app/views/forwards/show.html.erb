@@ -21,7 +21,7 @@
   <%= @forward.notes %>
 </p>
 
-<p>
+<p class="actions">
   <%= link_to t(:'actions.edit'), edit_forward_path(@forward) %> |
   <%= link_to t(:'actions.delete'), @forward, :confirm =>  t(:'actions.confirmdelete'), :method => :delete %> |
   <%= link_to t(:'title.forwards'), forwards_path %>
