@@ -1,6 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.0'
+gem "will_paginate", "~> 3.0.pre2"
 #gem 'nifty-generators', :path => '/Users/rainer/Projects/rails/src/nifty-generators'
 gem 'nifty-generators', '0.4.0.1'
 gem 'authlogic'
