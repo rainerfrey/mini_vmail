@@ -17,7 +17,7 @@ table {
   border: 2px solid #CF0000;
   display: table;
 }
-.error_messages {
+#error_messages {
   width: 450px;
   border: 2px solid #CF0000;
   padding: 7px;
@@ -27,7 +27,7 @@ table {
   font-size: 12px;
 }
 
-.error_messages h2 {
+#error_messages h2 {
   text-align: left;
   font-weight: bold;
   padding: 5px 5px 5px 15px;
@@ -37,16 +37,16 @@ table {
   background-color: #c00;
 }
 
-.error_messages p {
+#error_messages p {
   margin: 8px 10px;
 }
 
 
-.error_messages ul {
+#error_messages ul {
   margin: 0;
 }
 
-.error_messages ul li {
+#error_messages ul li {
   font-size: 12px;
 }
 
