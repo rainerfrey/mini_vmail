@@ -12,7 +12,7 @@ module ErrorMessagesHelper
       end
       options[:header_message] ||= t(:'activerecord.errors.template.header', :count => messages.count, :model => model)
       options[:message] ||= t(:'activerecord.errors.template.body')
-      content_tag(:div, :id => "error_messages") do
+      content_tag(:div, :class => "error_messages") do
         list_items = messages.map { |msg| content_tag(:li, msg) }
         content_tag(:h2, options[:header_message]) + content_tag(:p, options[:message]) + content_tag(:ul, list_items.join.html_safe)
       end
