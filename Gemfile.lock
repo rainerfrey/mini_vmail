@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/huerlisi/will_paginate.git
+  revision: ef54916d38bdecd1b5030a16cb620438c62b758d
+  branch: rails3
+  specs:
+    will_paginate (3.0.pre2)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -47,7 +54,7 @@ GEM
     eventmachine (0.12.10)
     highline (1.6.1)
     i18n (0.4.1)
-    mail (2.2.6.1)
+    mail (2.2.7)
       activesupport (>= 2.3.6)
       mime-types
       treetop (>= 1.4.5)
@@ -86,11 +93,10 @@ GEM
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
       rack (>= 1.0.0)
-    thor (0.14.2)
+    thor (0.14.3)
     treetop (1.4.8)
       polyglot (>= 0.3.1)
     tzinfo (0.3.23)
-    will_paginate (3.0.pre2)
 
 PLATFORMS
   ruby
@@ -104,4 +110,4 @@ DEPENDENCIES
   rails (= 3.0.0)
   sqlite3-ruby
   thin
-  will_paginate (~> 3.0.pre2)
+  will_paginate!
