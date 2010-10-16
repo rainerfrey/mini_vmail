@@ -5,7 +5,13 @@ class ApplicationController < ActionController::Base
   before_filter :locale_workaround
   
   helper_method :current_user
-
+  
+  def paginated_scope(relation)
+    instance_variable_set "@#{controller_name}", relation.paginate(:page =>params[:page])
+  end
+  
+  hide_action :paginated_scope
+  
   private
   def set_select_domains
     @domains = Domain.active
