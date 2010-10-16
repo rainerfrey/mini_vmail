@@ -1,10 +1,10 @@
 class ForwardsController < ApplicationController
   respond_to :html,:xml,:json
   before_filter :require_user
-  before_filter :set_select_domains, :only => [:new, :create, :edit, :update]
+  before_filter :set_select_domains, :only => [:new, :create, :edit, :update, :index]
 
   def index
-    @forwards = Forward.includes(:domain).ordered
+    @forwards = Forward.search params
     respond_with @forwards
   end
   

@@ -1,4 +1,5 @@
 <% title t(:'title.forwards') %>
+<%= render :partial => 'shared/search_form', :locals => { :domains => @domains, :target_url => forwards_path } %>
 
 <table>
   <thead>	

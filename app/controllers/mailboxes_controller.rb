@@ -1,11 +1,13 @@
+require 'pagination_responder'
+
 class MailboxesController < ApplicationController
   respond_to :html,:xml,:json
   before_filter :require_user
-  before_filter :set_select_domains, :only => [:new, :create, :edit, :update]
+  before_filter :set_select_domains, :only => [:new, :create, :edit, :update, :index]
   
   def index
-    @mailboxes = Mailbox.includes(:domain).ordered
-    respond_with @mailboxes
+    @mailboxes = Mailbox.search(params)
+    respond_with @mailboxes, :responder => PaginationResponder
   end
   
   def show

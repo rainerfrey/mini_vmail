@@ -19,6 +19,12 @@ en:
             virtual_mailboxes: "Postfix Virtual Mailbox Map SQL config"
             virtual_mailbox_domains: "Postfix Virtual Mailbox Domains Map SQL config"
             dovecot_auth: "Dovecot PassDB config"
+    form:
+        search:
+            name: "Name contains"
+            domain: "In Domain"
+            all_domains: "All"
+            search: "Search"
     actions:
         show: "Show"
         edit: "Edit"

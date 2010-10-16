@@ -1,5 +1,6 @@
 <% title t(:'title.mailboxes') %>
-
+<%= render :partial => 'shared/search_form', :locals => { :domains => @domains, :target_url => mailboxes_path } %>
+<%= paginated_section @mailboxes do %>
 <table>
 <thead>
   <tr>
@@ -22,5 +23,5 @@
   <% end %>
 </tbody>
 </table>
-
+<% end %>
 <p class="actions"><%= link_to  t(:'resource.new', :model => Mailbox.model_name.human), new_mailbox_path %></p>
