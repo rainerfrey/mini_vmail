@@ -18,18 +18,12 @@ pull requests with improvements.
 ## Getting Started
 
 1. Adapt config/deploy.rb and deploy Mini VMail with capistrano
-
 2. Open the deployment URL with a browser
-
 3. Follow the instructions to set up the initial administrator account
-
 4. Setup an additional user account to edit just mailbox and forward data
-
 5. Add at least one domain for which you want to receive mails
-
 6. Download the mail server configuration files to your mail server. Database connection details are already filled in.
    Adapt to your needs if necessary
-
 7. Add mailbox and forward (alias) entries
 
 ## Configuring virtual mail domains in Postfix
@@ -44,18 +38,22 @@ As the domains table contains a transport field, the same table can be used as `
 
 ### local domains map file vs. SQL lookup configuration
 For many mail server setups, the list of hosted domains does not change very often. As local map files are always faster and more robust, you might want to export the domain map and use that in postfix. Use the link at the mail server configuration downloads for that.
+
 * for most cases just use the SQL configuration 
 * if your domain list changes very infrequently _and_ you're concerned about limiting the number of SQL queries export the domain list
 
 ## Configuring the list of valid recipients for postfix
 Recent postfix versions provide recipient address verification which can be used to determine valid addresses for the hosted domains. This only works for SMTP and LMTP destinations. If this is not used, the list of valid recipient must be explicitly configured in postfix, as
+
 * `virtual_mailbox_maps` if the domains are configured as `virtual_mailbox_domains`
 * `relay_recipient_maps` if the domains are configured as `relay_domains`
 
 ####Guideline:
 Use recipient verification if:
+
 * mail is delivered with LMTP or SMTP _and_
 * verification cache is properly configured and monitored
+
 Be sure to apply recipient verification only to the destination domains under your own control.
 
 In all other cases use an explicit recipient map.
