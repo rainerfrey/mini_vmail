@@ -6,7 +6,7 @@ class DownloadsController < ApplicationController
   def index
   end
 
-  def relay_domains
+  def export_relay_domains
     domains = Domain.active
     transport = APP_CONFIG[:relay_transport]
     domain_file = ""
@@ -21,11 +21,11 @@ class DownloadsController < ApplicationController
     send_config_file file_key
   end
   
-  def virtual_mailboxes
+  def relay_recipients
     send_config_file file_key
   end
 
-  def virtual_mailbox_domains
+  def relay_domains
     send_config_file file_key
   end
 

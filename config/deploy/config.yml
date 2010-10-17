@@ -1,9 +1,9 @@
 defaults: &defaults
     relay_transport: lmtp:unix:/var/run/dovecot/lmtp
-    relay_domains_file: relay_domains
+    export_relay_domains_file: relay_domains
     virtual_aliases_file: virtual_alias.cf
-    virtual_mailboxes_file: virtual_mailbox.cf
-    virtual_mailbox_domains_file: virtual_mailbox_domains.cf
+    relay_recipients_file: relay_recipients.cf
+    relay_domains_file: relay_domains.cf
     dovecot_auth_file: dovecot-sql.conf
     
 development:

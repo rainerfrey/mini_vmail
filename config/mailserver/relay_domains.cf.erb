@@ -5,8 +5,10 @@
 query = SELECT d.transport FROM domains d WHERE d.active=TRUE AND d.name='%s'
 
 # include in main.cf with:
-# virtual_mailbox_domains = proxy:<%= db_type %>:${config_directory}/virtual_mailbox_domains.cf
-#
 # use as relay_domains:
 # relay_domains = proxy:<%= db_type %>:${config_directory}/relay_domains.cf
 # transport_maps = hash:${config_directory}/transport,proxy:<%= db_type %>:${config_directory}/relay_domains.cf
+#
+# use as virtual_mailbox_domains:
+# virtual_mailbox_domains = proxy:<%= db_type %>:${config_directory}/virtual_mailbox_domains.cf
+

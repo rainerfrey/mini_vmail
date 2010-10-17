@@ -11,10 +11,10 @@ de:
         downloads: "Mailserver-Konfiguration"
     link:
         dl:
-            relay_domains: "Postfix Relay Domain Map-Datei"
-            virtual_aliases: "Postfix Virtual Alias Map SQL-Konfiguration"
-            virtual_mailboxes: "Postfix Virtual Mailbox Map SQL-Konfiguration"
-            virtual_mailbox_domains: "Postfix Virtual Mailbox Domain Map SQL-Konfiguration"
+            export_relay_domains: "Postfix relay_domains Map-Datei"
+            virtual_aliases: "Postfix virtual_alias_maps SQL-Konfiguration"
+            relay_recipients: "Postfix relay_recipient_maps SQL-Konfiguration"
+            relay_domains: "Postfix relay_domains SQL-Konfiguration"
             dovecot_auth: "Dovecot PassDB Konfiguration"
     form:
         search:

@@ -5,7 +5,8 @@
 query = SELECT u.name FROM mailboxes u JOIN domains d on u.domain_id=d.id WHERE u.active=TRUE AND d.active=TRUE AND u.name = '%u' AND d.name = '%d'
 
 # include in main.cf with:
-# virtual_mailbox_maps = proxy:<%= db_type %>:${config_directory}/virtual_mailbox.cf
-# 
 # with relay domains:
 # relay_recipient_maps = proxy:<%= db_type %>:${config_directory}/relay_recipients.cf
+#
+# with virtual_mailbox_domains:
+# virtual_mailbox_maps = proxy:<%= db_type %>:${config_directory}/virtual_mailbox.cf
