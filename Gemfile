@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.0'
+gem 'rails', '3.0.1'
 gem "will_paginate", :git => 'git://github.com/huerlisi/will_paginate.git', :branch => 'rails3'
 #gem 'nifty-generators', :path => '/Users/rainer/Projects/rails/src/nifty-generators'
 gem 'nifty-generators', '0.4.0.1'
