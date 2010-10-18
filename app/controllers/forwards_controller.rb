@@ -1,3 +1,5 @@
+require 'pagination_responder'
+
 class ForwardsController < ApplicationController
   respond_to :html,:xml,:json
   before_filter :require_user
@@ -5,7 +7,7 @@ class ForwardsController < ApplicationController
 
   def index
     @forwards = Forward.search params
-    respond_with @forwards
+    respond_with @forwards, :responder => PaginationResponder
   end
   
   def show
