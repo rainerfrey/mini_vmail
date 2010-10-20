@@ -7,7 +7,15 @@ require 'rails/all'
 Bundler.require(:default, Rails.env) if defined?(Bundler)
 
 module MiniVmail
-  VERSION = "1.1"
+  module VERSION
+    MAJOR=1
+    MINOR=1
+    TINY=0
+    DATE="10.2010"
+    STRING=[MAJOR,MINOR].join(".")
+    DISPLAY="v#{STRING} - #{DATE}"
+  end
+  
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
