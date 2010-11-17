@@ -5,3 +5,4 @@ log/*.log
 tmp/**/*
 config/database.yml
 config/config.yml
+config/deploy.rb
