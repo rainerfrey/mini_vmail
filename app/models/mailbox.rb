@@ -25,6 +25,11 @@ class Mailbox < ActiveRecord::Base
     self.password=pass unless pass.blank?
   end
   
+  def name=(name)
+    name = name.downcase unless name.blank?
+    write_attribute :name, name
+  end
+  
   def to_s
     domain ? "#{name}@#{domain}" : name
   end

@@ -22,6 +22,11 @@ class Forward < ActiveRecord::Base
     domain ? "#{name}@#{domain}" : name
   end
   
+  def name=(name)
+    name = name.downcase unless name.blank?
+    write_attribute :name, name
+  end
+  
   def destination=(dest)
     dest = dest + '@' + domain.name unless (domain.blank? || dest =~ /@/) 
     write_attribute :destination, dest
