@@ -5,7 +5,7 @@ set :app_domain, "#{application}"
 set :repository,  "git://github.com/rainerfrey/mini_vmail.git"
 
 set :use_sudo, false
-set :group_writeble, true
+set :group_writable, true
 set :user, "deploy"
 set :run_user, "rails-vmail"
 
@@ -111,7 +111,8 @@ namespace :apache do
           Options -MultiViews
           Order Allow,Deny
           Allow from all
-      </Directory>      
+      </Directory>
+      PassengerPreStart http://#{app_domain}/
     </VirtualHost>
     HOST
 
