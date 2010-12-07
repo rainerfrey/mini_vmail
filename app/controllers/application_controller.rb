@@ -59,7 +59,7 @@ class ApplicationController < ActionController::Base
     model.send("#{method}d_by=", user.login) if user
   end
   
-  def locale_workaround
-    I18n.locale = I18n.default_locale if Rails.env == "production"
-  end
+#  def locale_workaround
+#    I18n.locale = I18n.default_locale if Rails.env == "production"
+#  end
 end
