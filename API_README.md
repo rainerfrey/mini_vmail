@@ -33,16 +33,17 @@ Here is the overview over the URLs to above object resources:
  
 Formats
 =======
-* XML: e.g. /mailboxes.xml, /mailboxes/new.xml, see template by calling new.xml
-* JSON: e.g. /mailboxes.json, /mailboxes/new.json, see template by calling new.json
+* XML: e.g. `/mailboxes.xml`, `/mailboxes/new.xml`, see template by calling new.xml
+* JSON: e.g. `/mailboxes.json`, `/mailboxes/new.json`, see template by calling new.json
  * JSON requires a root mapping with object type name
- * {"mailbox":{"name":"..." ...}} instead of only {"name":"..." ...}
+ * `{"mailbox":{"name":"..." ...}}` instead of only `{"name":"..." ...}`
     
 Query Parameters
 ================
-all object lists can be filtered by query parameters:
-* name_like=value performs a SQL "name LIKE '%value%'" query. available on domains, mailboxes and forwards
-* domain_id=id filters by associated domain. available on mailboxes and forwards
+All object lists can be filtered by query parameters:
+
+* `name_like=value` performs a SQL `name LIKE '%value%'` query. available on domains, mailboxes and forwards
+* `domain_id=id` filters by associated domain. available on mailboxes and forwards
 	
 Mailbox attributes
 ==================

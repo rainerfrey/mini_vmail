@@ -42,19 +42,22 @@ DELETE /forwards/:id(.:format)                   delete the forward
 <h1 id="formats">Formats</h1>
 
 <ul>
-<li>XML: e.g. /mailboxes.xml, /mailboxes/new.xml, see template by calling new.xml</li>
-<li>JSON: e.g. /mailboxes.json, /mailboxes/new.json, see template by calling new.json
+<li>XML: e.g. <code>/mailboxes.xml</code>, <code>/mailboxes/new.xml</code>, see template by calling new.xml</li>
+<li>JSON: e.g. <code>/mailboxes.json</code>, <code>/mailboxes/new.json</code>, see template by calling new.json
 <ul>
 <li>JSON requires a root mapping with object type name</li>
-<li>{&#8220;mailbox&#8221;:{&#8220;name&#8221;:&#8221;&#8230;&#8221; &#8230;}} instead of only {&#8220;name&#8221;:&#8221;&#8230;&#8221; &#8230;}</li>
+<li><code>{"mailbox":{"name":"..." ...}}</code> instead of only <code>{"name":"..." ...}</code></li>
 </ul></li>
 </ul>
 
 <h1 id="queryparameters">Query Parameters</h1>
 
-<p>all object lists can be filtered by query parameters:
-* name_like=value performs a SQL &#8220;name LIKE &#8216;%value%&#8217;&#8221; query. available on domains, mailboxes and forwards
-* domain_id=id filters by associated domain. available on mailboxes and forwards</p>
+<p>All object lists can be filtered by query parameters:</p>
+
+<ul>
+<li><code>name_like=value</code> performs a SQL <code>name LIKE '%value%'</code> query. available on domains, mailboxes and forwards</li>
+<li><code>domain_id=id</code> filters by associated domain. available on mailboxes and forwards</li>
+</ul>
 
 <h1 id="mailboxattributes">Mailbox attributes</h1>
 
