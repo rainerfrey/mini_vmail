@@ -41,8 +41,8 @@ Formats
 Query Parameters
 ================
 all object lists can be filtered by query parameters:
-* name_like=<value> performs a SQL "name LIKE '%<value>%'" query. available on domains, mailboxes and forwards
-* domain_id=<id> filters by associated domain. available on mailboxes and forwards
+* name_like=value performs a SQL "name LIKE '%value%'" query. available on domains, mailboxes and forwards
+* domain_id=id filters by associated domain. available on mailboxes and forwards
 	
 Mailbox attributes
 ==================

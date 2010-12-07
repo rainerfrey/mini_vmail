@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+	<head>
+		<meta name="Format" content="complete" />
+	</head>
+<body>
+<h1 id="restfulapiforminivmail">RESTful API for MiniVmail</h1>
+
+<h2 id="objects">Objects</h2>
+
+<ul>
+<li>domain: domain names for which mail is receive. has a name, and an ID for referencing the domain in mailboxes and forwards</li>
+<li>mailbox: a mailbox belongs_to a domain, has a name (i.e. local part), password and domain id</li>
+<li>forward: belongs_to a domain, has a name (i.e. local part), a domain id, and a destination. destination may be a full email address, or a name only, which is then interpreted within the forward&#8217;s domain</li>
+</ul>
+
+<h2 id="urls">URLs</h2>
+
+<p>Here is the overview over the URLs to above object resources:</p>
+
+<pre><code>GET    /domains(.:format)                        get list of domains.
+POST   /domains(.:format)                        (needs admin privileges)
+GET    /domains/new(.:format)                    (needs admin privileges)
+GET    /domains/:id(.:format)                    get a single domain
+PUT    /domains/:id(.:format)                    (needs admin privileges)
+DELETE /domains/:id(.:format)                    (needs admin privileges)
+GET    /mailboxes(.:format)                      get list of mailboxes. 
+POST   /mailboxes(.:format)                      add a new mailbox with mailbox data in POST body (in requested format)
+GET    /mailboxes/new(.:format)                  get an empty template mailbox object in requested format with all relevant attributes
+GET    /mailboxes/:id(.:format)                  get a single mailbox
+PUT    /mailboxes/:id(.:format)                  update a single existing mailbox (object in PUT body)
+DELETE /mailboxes/:id(.:format)                  destroy mailbox with specified ID, no request body
+GET    /forwards(.:format)                       get list of forwards
+POST   /forwards(.:format)                       add a new forward with  data in POST body (in requested format)
+GET    /forwards/new(.:format)                   get an empty template forward
+GET    /forwards/:id(.:format)                   get a single forward
+PUT    /forwards/:id(.:format)                   update a single existing forward
+DELETE /forwards/:id(.:format)                   delete the forward
+</code></pre>
+
+<h1 id="formats">Formats</h1>
+
+<ul>
+<li>XML: e.g. /mailboxes.xml, /mailboxes/new.xml, see template by calling new.xml</li>
+<li>JSON: e.g. /mailboxes.json, /mailboxes/new.json, see template by calling new.json
+<ul>
+<li>JSON requires a root mapping with object type name</li>
+<li>{&#8220;mailbox&#8221;:{&#8220;name&#8221;:&#8221;&#8230;&#8221; &#8230;}} instead of only {&#8220;name&#8221;:&#8221;&#8230;&#8221; &#8230;}</li>
+</ul></li>
+</ul>
+
+<h1 id="queryparameters">Query Parameters</h1>
+
+<p>all object lists can be filtered by query parameters:
+* name_like=value performs a SQL &#8220;name LIKE &#8216;%value%&#8217;&#8221; query. available on domains, mailboxes and forwards
+* domain_id=id filters by associated domain. available on mailboxes and forwards</p>
+
+<h1 id="mailboxattributes">Mailbox attributes</h1>
+
+<table>
+<col />
+<col />
+<col />
+<col />
+<thead>
+<tr>
+	<th>attribute</th>
+	<th>type</th>
+	<th>required</th>
+	<th>notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+	<td>name</td>
+	<td>string</td>
+	<td>yes</td>
+	<td>email local part</td>
+</tr>
+<tr>
+	<td>my_password</td>
+	<td>string</td>
+	<td>(when creating)</td>
+	<td>only to change or initially set password</td>
+</tr>
+<tr>
+	<td>my_password_confirmation</td>
+	<td>string</td>
+	<td>(when creating)</td>
+	<td>necessary when setting password</td>
+</tr>
+<tr>
+	<td>domain_id</td>
+	<td>integer</td>
+	<td>yes</td>
+	<td>referenced domain must exist</td>
+</tr>
+<tr>
+	<td>active</td>
+	<td>boolean</td>
+	<td>no</td>
+	<td>must be true to receive mails</td>
+</tr>
+<tr>
+	<td>notes</td>
+	<td>text</td>
+	<td>no</td>
+	<td>purely informational text notes</td>
+</tr>
+<tr>
+	<td>id</td>
+	<td>integer</td>
+	<td>read-only</td>
+	<td>object id, must not be present when creating, preserved when updating</td>
+</tr>
+<tr>
+	<td>created_by</td>
+	<td>string</td>
+	<td>read-only</td>
+	<td>user that initially mailbox</td>
+</tr>
+<tr>
+	<td>updated_by</td>
+	<td>string</td>
+	<td>read-only</td>
+	<td>user that last updated mailbox</td>
+</tr>
+<tr>
+	<td>created_at</td>
+	<td>datetime</td>
+	<td>read-only</td>
+	<td>time of creation</td>
+</tr>
+<tr>
+	<td>updated_at</td>
+	<td>datetime</td>
+	<td>read-only</td>
+	<td>last change time</td>
+</tr>
+</tbody>
+</table>
+
+<h1 id="exampleseriesofcalls">Example series of calls</h1>
+
+<p>To create a mailbox &#8220;test@example.com&#8221;, calls may look like:</p>
+
+<pre><code>domain = GET /domains.json?name_like=example.com
+template = GET /mailboxes/new.json
+template.setName("test")
+template.setMyPassword("secret")
+template.setMyPasswordConfirmation("secret")
+template.setDomainId(domain.id)
+template.setActive(true)
+POST /mailboxes.json
+template.toJson
+</code></pre>
+</body>
+</html>
