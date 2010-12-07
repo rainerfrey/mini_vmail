@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   layout 'application'
   
-  before_filter :locale_workaround
+#  before_filter :locale_workaround
   
   helper_method :current_user
   
