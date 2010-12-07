@@ -1,9 +1,10 @@
 class DomainsController < ApplicationController
   respond_to :html,:xml,:json
-  before_filter :require_admin
+  before_filter :require_admin, :except => [:index,:show]
+  before_filter :require_user, :only => [:index,:show]
   
   def index
-    @domains = Domain.ordered
+    @domains = Domain.search(params)
     respond_with @domains
   end
   

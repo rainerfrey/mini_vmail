@@ -33,4 +33,10 @@ class Mailbox < ActiveRecord::Base
   def to_s
     domain ? "#{name}@#{domain}" : name
   end
+
+  def as_json(options={})
+    options[:except]=[:password]
+    logger.debug options
+    super options
+  end
 end

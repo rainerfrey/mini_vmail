@@ -17,8 +17,9 @@ class MailboxesController < ApplicationController
   
   def new
     @mailbox = Mailbox.new
-    
-    respond_with @mailbox
+    respond_with @mailbox do |format|
+      format.json { render :json => @mailbox.as_json( :only => [:name, :domain_id, :active,:notes], :methods=>[:my_password,:my_password_confirmation])}
+    end
   end
   
   def create
