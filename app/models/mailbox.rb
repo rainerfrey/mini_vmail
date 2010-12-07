@@ -34,9 +34,18 @@ class Mailbox < ActiveRecord::Base
     domain ? "#{name}@#{domain}" : name
   end
 
-  def as_json(options={})
+  def as_json(options)
+    super(serialize_opts(options))
+  end
+  
+  def to_xml(options)
+    super(serialize_opts(options))
+  end
+    
+  private
+  def serialize_opts(options={})
     options[:except]=[:password]
     logger.debug options
-    super options
+    options    
   end
 end
