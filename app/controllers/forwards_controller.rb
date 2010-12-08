@@ -17,6 +17,7 @@ class ForwardsController < ApplicationController
   
   def new
     @forward = Forward.new
+    @forward.active = true
     respond_with @forward
   end
   

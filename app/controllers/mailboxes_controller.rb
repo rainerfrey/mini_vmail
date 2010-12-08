@@ -17,6 +17,7 @@ class MailboxesController < ApplicationController
   
   def new
     @mailbox = Mailbox.new
+    @mailbox.active = true
     serialize_opts = {:only => [:name, :domain_id, :active,:notes], :methods=>[:my_password,:my_password_confirmation]} 
     respond_with @mailbox do |format|
       format.json { render :json => @mailbox.as_json(serialize_opts)}

@@ -10,7 +10,7 @@ module MiniVmail
   module VERSION
     MAJOR=1
     MINOR=1
-    TINY=2
+    TINY=3
     DATE="12.2010"
     STRING=[MAJOR,MINOR,TINY].join(".")
     DISPLAY="v#{STRING} - #{DATE}"
@@ -51,7 +51,8 @@ module MiniVmail
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
-    
+
+#    config.active_record.include_root_in_json = false
     config.active_record.timestamped_migrations = false
   end
 end
