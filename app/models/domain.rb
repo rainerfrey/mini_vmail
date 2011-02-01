@@ -1,6 +1,6 @@
 class Domain < ActiveRecord::Base
-  has_many :mailboxes
-  has_many :forwards
+  has_many :mailboxes, :inverse_of => :domain
+  has_many :forwards, :inverse_of => :domain
   
   validates :name, :presence => true, :uniqueness => true
   validates_presence_of :transport

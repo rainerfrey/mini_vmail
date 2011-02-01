@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 8) do
+ActiveRecord::Schema.define(:version => 9) do
 
   create_table "domains", :force => true do |t|
     t.string   "name"
@@ -58,5 +58,9 @@ ActiveRecord::Schema.define(:version => 8) do
     t.boolean  "admin"
     t.text     "notes"
   end
+
+  add_foreign_key "forwards", "domains", :name => "forwards_domain_id_fk"
+
+  add_foreign_key "mailboxes", "domains", :name => "mailboxes_domain_id_fk"
 
 end

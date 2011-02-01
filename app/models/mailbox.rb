@@ -1,5 +1,5 @@
 class Mailbox < ActiveRecord::Base
-  belongs_to :domain
+  belongs_to :domain, :inverse_of => :mailboxes
   scope :active, where(:active => true)
   scope :ordered, order("active DESC, name ASC")
   scope :domain_id, lambda { |domain_id| where(:domain_id => domain_id)}

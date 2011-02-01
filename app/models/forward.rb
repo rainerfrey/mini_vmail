@@ -1,5 +1,5 @@
 class Forward < ActiveRecord::Base
-  belongs_to :domain
+  belongs_to :domain, :inverse_of => :forwards
   
   before_validation(:if => :destination_changed?) {|forward| forward.destination=forward.destination}
   
