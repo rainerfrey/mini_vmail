@@ -3,6 +3,7 @@ require 'bundler/capistrano'
 set :application, "vmail"
 set :app_domain, "#{application}"
 set :repository,  "git://github.com/rainerfrey/mini_vmail.git"
+#set :branch, "v1.1.3"
 
 set :use_sudo, false
 set :group_writable, true
