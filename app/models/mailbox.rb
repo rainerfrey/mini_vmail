@@ -5,7 +5,7 @@ class Mailbox < ActiveRecord::Base
   scope :domain_id, lambda { |domain_id| where(:domain_id => domain_id)}
   scope :name_like, lambda { |name| where("mailboxes.name LIKE ?", "%#{name}%") } 
   
-  validates_presence_of :name, :password, :domain_id
+  validates_presence_of :name, :password, :domain
   validates_uniqueness_of :name, :scope => :domain_id
   validates_confirmation_of :my_password
   

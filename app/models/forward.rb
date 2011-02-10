@@ -3,7 +3,7 @@ class Forward < ActiveRecord::Base
   
   before_validation(:if => :destination_changed?) {|forward| forward.destination=forward.destination}
   
-  validates_presence_of :name, :domain_id, :destination  
+  validates_presence_of :name, :domain, :destination
   
   scope :active, where(:active => true)
   scope :ordered, order("active DESC, name ASC")
