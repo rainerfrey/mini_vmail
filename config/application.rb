@@ -9,9 +9,9 @@ Bundler.require(:default, Rails.env) if defined?(Bundler)
 module MiniVmail
   module VERSION
     MAJOR=1
-    MINOR=1
-    TINY=3
-    DATE="12.2010"
+    MINOR=2
+    TINY=0
+    DATE="02.2011"
     STRING=[MAJOR,MINOR,TINY].join(".")
     DISPLAY="v#{STRING} - #{DATE}"
   end
