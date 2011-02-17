@@ -20,6 +20,22 @@
   <strong><%= Forward.human_attribute_name("notes") %>:</strong>
   <%= @forward.notes %>
 </p>
+<p>
+  <strong><%= Forward.human_attribute_name("created_by") %>:</strong>
+  <%= @forward.created_by %>
+</p>
+<p>
+  <strong><%= Forward.human_attribute_name("created_at") %>:</strong>
+  <%= l(@forward.created_at, :format => :short) %>
+</p>
+<p>
+  <strong><%= Forward.human_attribute_name("updated_by") %>:</strong>
+  <%= @forward.updated_by %>
+</p>
+<p>
+  <strong><%= Forward.human_attribute_name("updated_at") %>:</strong>
+  <%= l(@forward.updated_at, :format => :short) %>
+</p>
 
 <p class="actions">
   <%= link_to t(:'actions.edit'), edit_forward_path(@forward) %> |

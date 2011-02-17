@@ -16,6 +16,22 @@
   <strong><%= Mailbox.human_attribute_name("active") %>:</strong>
   <%= @mailbox.active %>
 </p>
+<p>
+  <strong><%= Mailbox.human_attribute_name("created_by") %>:</strong>
+  <%= @mailbox.created_by %>
+</p>
+<p>
+  <strong><%= Mailbox.human_attribute_name("created_at") %>:</strong>
+  <%= l(@mailbox.created_at, :format => :short) %>
+</p>
+<p>
+  <strong><%= Mailbox.human_attribute_name("updated_by") %>:</strong>
+  <%= @mailbox.updated_by %>
+</p>
+<p>
+  <strong><%= Mailbox.human_attribute_name("updated_at") %>:</strong>
+  <%= l(@mailbox.updated_at, :format => :short) %>
+</p>
 
 <p class="actions">
   <%= link_to t(:'actions.edit'), edit_mailbox_path(@mailbox) %> |

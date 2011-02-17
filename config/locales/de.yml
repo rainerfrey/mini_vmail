@@ -47,7 +47,9 @@ de:
                 active: "Aktiv"
                 notes: "Bemerkungen"
                 created_by: "Erstellt von"
-                updated_by: Zuletzt geändert von
+                updated_by: "Zuletzt geändert von"
+                created_at: "Erstellt"
+                updated_at: "Zuletzt geändert"
             mailbox:
                 active: "Aktiv"
                 notes: "Bemerkungen"
@@ -55,12 +57,16 @@ de:
                 my_password_confirmation: "Passwort bestätigen"
                 created_by: "Erstellt von"
                 updated_by: Zuletzt geändert von
+                created_at: "Erstellt"
+                updated_at: "Zuletzt geändert"
             forward:
                 active: "Aktiv"
                 notes: "Bemerkungen"
                 destination: "Weiterleiten an"
                 created_by: "Erstellt von"
                 updated_by: Zuletzt geändert von
+                created_at: "Erstellt"
+                updated_at: "Zuletzt geändert"
             user:
                 notes: "Bemerkungen"
                 password: "Passwort"
