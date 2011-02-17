@@ -2,6 +2,8 @@ class Domain < ActiveRecord::Base
   has_many :mailboxes, :inverse_of => :domain
   has_many :forwards, :inverse_of => :domain
   
+  attr_accessible :name, :transport, :notes, :active
+
   validates :name, :presence => true, :uniqueness => true
   validates_presence_of :transport
   

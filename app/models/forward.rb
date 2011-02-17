@@ -1,6 +1,8 @@
 class Forward < ActiveRecord::Base
   belongs_to :domain, :inverse_of => :forwards
   
+  attr_accessible :name, :domain_id, :notes, :active, :destination
+  
   before_validation(:if => :destination_changed?) {|forward| forward.destination=forward.destination}
   
   validates_presence_of :name, :domain, :destination

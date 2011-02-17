@@ -9,7 +9,7 @@ class Mailbox < ActiveRecord::Base
   validates_uniqueness_of :name, :scope => :domain_id
   validates_confirmation_of :my_password
   
-  attr_protected :password
+  attr_accessible :name, :domain_id, :notes, :active, :my_password, :my_password_confirmation
   
   attr_reader :my_password
   
