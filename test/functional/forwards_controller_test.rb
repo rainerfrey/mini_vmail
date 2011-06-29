@@ -1,6 +1,13 @@
 require 'test_helper'
 
 class ForwardsControllerTest < ActionController::TestCase
+  setup do
+    with_admin_session
+    @forward = forwards(:remote)
+    @invalid = {name: nil}
+    @update = {name: "newname", destination: @forward.destination, domain_id: @forward.domain_id}
+  end
+
   def test_index
     get :index
     assert_template 'index'
@@ -17,14 +24,12 @@ class ForwardsControllerTest < ActionController::TestCase
   end
   
   def test_create_invalid
-    Forward.any_instance.stubs(:valid?).returns(false)
-    post :create
+    post :create, :forward => @invalid
     assert_template 'new'
   end
   
   def test_create_valid
-    Forward.any_instance.stubs(:valid?).returns(true)
-    post :create
+    post :create, :forward => @update
     assert_redirected_to forward_url(assigns(:forward))
   end
   
@@ -34,14 +39,12 @@ class ForwardsControllerTest < ActionController::TestCase
   end
   
   def test_update_invalid
-    Forward.any_instance.stubs(:valid?).returns(false)
-    put :update, :id => Forward.first
+    put :update, :id =>@forward.id, :forward => @invalid
     assert_template 'edit'
   end
   
   def test_update_valid
-    Forward.any_instance.stubs(:valid?).returns(true)
-    put :update, :id => Forward.first
+    put :update, :id =>@forward.id, :forward => @update
     assert_redirected_to forward_url(assigns(:forward))
   end
   

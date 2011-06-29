@@ -1,14 +1,21 @@
 require 'test_helper'
 
 class DomainsControllerTest < ActionController::TestCase
-  def test_index
-    get :index
-    assert_template 'index'
+  setup do
+    with_admin_session
+    @domain = domains(:home)
+    @invalid = {name: nil}
+    @update = {name: "new", transport: @domain.transport, active: @domain.active}
   end
   
+  test "should get index" do
+    get :index
+    assert_response :success    
+  end
+
   def test_show
     get :show, :id => Domain.first
-    assert_template 'show'
+    assert_response :success
   end
   
   def test_new
@@ -17,31 +24,27 @@ class DomainsControllerTest < ActionController::TestCase
   end
   
   def test_create_invalid
-    Domain.any_instance.stubs(:valid?).returns(false)
-    post :create
+    post :create, :domain => @invalid
     assert_template 'new'
   end
   
   def test_create_valid
-    Domain.any_instance.stubs(:valid?).returns(true)
-    post :create
+    post :create, :domain => @update
     assert_redirected_to domain_url(assigns(:domain))
   end
   
   def test_edit
-    get :edit, :id => Domain.first
+    get :edit, :id => @domain.id
     assert_template 'edit'
   end
   
   def test_update_invalid
-    Domain.any_instance.stubs(:valid?).returns(false)
-    put :update, :id => Domain.first
+    put :update, :id => @domain.id, :domain => @invalid
     assert_template 'edit'
   end
   
   def test_update_valid
-    Domain.any_instance.stubs(:valid?).returns(true)
-    put :update, :id => Domain.first
+    put :update, :id => @domain.id, :domain => @update
     assert_redirected_to domain_url(assigns(:domain))
   end
   
