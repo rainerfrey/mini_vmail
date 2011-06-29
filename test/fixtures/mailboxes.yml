@@ -1,13 +1,13 @@
-one:
-  name: MyString
-  password: MyString
-  domain: 
-  notes: MyText
-  active: false
+mine:
+  name: rainer
+  password: secret
+  domain: home
+  notes: blablabla
+  active: true
 
-two:
-  name: MyString
+inactive:
+  name: test-mailbox
   password: MyString
-  domain: 
-  notes: MyText
+  domain: test
+  notes: 
   active: false

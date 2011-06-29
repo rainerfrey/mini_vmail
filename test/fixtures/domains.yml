@@ -2,19 +2,15 @@ home:
   name: home.mr-frey.de
   notes: MyText
   active: true
+  transport: lmtp
 
 test:
   name: test.mr-frey.de
   notes: MyText
   active: false
+  transport: lda
 
 blank:
     name: 
     notes: MyText
     active: false
-    
-duplicate:
-    name: home.mr-frey.de
-    notes: MyText
-    active: true
-    
