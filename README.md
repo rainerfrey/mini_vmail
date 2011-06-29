@@ -28,7 +28,7 @@ pull requests with improvements.
 
 ## Configuring virtual mail domains in Postfix
 
-In all described scenarios: never add domains configured in Mini VMail to mydestination!
+In all described scenarios: never add domains configured in Mini VMail to `mydestination`!
 
 ### virtual_mailbox_domains vs. relay_domains
 Postfix offers the `virtual_mailbox_domains` address class to deliver mails locally to virtual users. Delivery happens by default with the
