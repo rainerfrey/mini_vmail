@@ -16,6 +16,11 @@ group :development do
 	gem 'capistrano_rsync_with_remote_cache'
 end
 
+group :test do
+  gem 'mocha'
+  gem 'turn'
+end
+
 group :production do
 	gem 'pg'
 end
