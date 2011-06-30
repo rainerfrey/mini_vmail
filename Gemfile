@@ -14,11 +14,13 @@ group :development do
 	gem 'thin'
 	gem 'capistrano'
 	gem 'capistrano_rsync_with_remote_cache'
+  gem 'wirble'
+  gem 'hirb'
 end
 
 group :test do
   gem 'mocha'
-  gem 'turn'
+  gem 'turn', :require => false
 end
 
 group :production do
