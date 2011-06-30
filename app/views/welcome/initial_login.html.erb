@@ -1,5 +1,5 @@
 <% title t(:'title.welcome.initial_login') %>
-<% form_for :user, :url=>{:action=>:create_initial_login} do |f| %>
+<%= form_for :user, :url=>{:action=>:create_initial_login} do |f| %>
 	<%= render :partial => 'users/fields', :locals => {:f => f} %>
   <p><%= f.submit t(:'title.welcome.initial_login') %></p>	
 <% end %>
