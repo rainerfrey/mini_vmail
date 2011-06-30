@@ -7,21 +7,22 @@ class UserSessionsControllerTest < ActionController::TestCase
   end
   
   def test_create_invalid
-    UserSession.any_instance.stubs(:valid?).returns(false)
-    post :create
+    post :create, :user_session => {login:"admin",password:"wrong"}
+    assert !UserSession.find
     assert_template 'new'
   end
   
   def test_create_valid
-    UserSession.any_instance.stubs(:valid?).returns(true)
-    post :create
+    post :create, :user_session => {login:"admin",password:"secret"}
+    assert UserSession.find
     assert_redirected_to root_url
   end
   
   def test_destroy
-    user_session = UserSession.first
-    delete :destroy, :id => user_session
+    with_admin_session
+    user_session = UserSession.find
+    delete :destroy
     assert_redirected_to root_url
-    assert !UserSession.exists?(user_session.id)
+    assert !UserSession.find
   end
 end

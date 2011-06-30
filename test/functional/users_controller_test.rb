@@ -1,6 +1,10 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
+  setup do
+    with_admin_session
+  end
+  
   def test_index
     get :index
     assert_template 'index'
