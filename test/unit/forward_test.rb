@@ -21,27 +21,4 @@ class ForwardTest < ActiveSupport::TestCase
       assert forward.errors[:domain].any?
     end
 
-    # test "name must be unique within domain" do
-    #   local = forwards(:local)
-    #   forward = Forward.new(
-    #     :name => local.name,
-    #     :destination => 'rainer@home.mr-frey.de'
-    #   )
-    #   forward.domain = domains(:home)
-    # 
-    #   assert forward.domain.name == "home.mr-frey.de", "domain assignment shoud work"
-    #   assert forward.invalid?
-    #   debug forward.to_yml
-    #   debug forward.errors
-    #   debug I18n.translate("activerecord.errors.messages.taken")
-    #   assert forward.errors[:name].include?(I18n.translate("activerecord.errors.messages.taken")), "name should be taken"
-    # 
-    #   forward.name = "unique"
-    #   assert forward.valid?, "different name makes it valid"
-    # 
-    #   forward.name = local.name
-    #   forward.domain = domains(:test)
-    #   assert forward.valid?, "same name is valid in different domain"
-    # end
-    
 end
