@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   
   def paginated_scope(relation)
-    instance_variable_set "@#{controller_name}", relation.paginate(:page =>params[:page])
+    instance_variable_set "@#{controller_name}", relation.page(params[:page])
   end
   
   hide_action :paginated_scope

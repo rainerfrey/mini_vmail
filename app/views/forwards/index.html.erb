@@ -1,6 +1,6 @@
 <% title t(:'title.forwards') %>
 <%= render :partial => 'shared/search_form', :locals => { :domains => @domains, :target_url => forwards_path } %>
-<%= paginated_section @forwards do %>
+<%= paginate @forwards %>
 <table>
   <thead>	
   <tr>
@@ -25,5 +25,5 @@
   <% end %>
   </tbody>
 </table>
-<% end %>
+<%= paginate @forwards %>
 <p class="actions"><%= link_to t(:'resource.new', :model => Forward.model_name.human), new_forward_path %></p>
