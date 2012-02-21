@@ -2,8 +2,9 @@ source 'http://rubygems.org'
 
 gem 'rails'
 #gem "will_paginate", :git => 'git://github.com/huerlisi/will_paginate.git', :branch => 'rails3'
-gem "will_paginate", "3.0.pre2huerlisi"
+#gem "will_paginate", "3.0.pre2huerlisi"
 #gem 'nifty-generators', :path => '/Users/rainer/Projects/rails/src/nifty-generators'
+gem 'kaminari'
 gem 'nifty-generators', '0.4.0.1'
 gem 'authlogic'
 gem 'foreigner'
