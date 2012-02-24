@@ -7,3 +7,4 @@ config/database.yml
 config/config.yml
 config/deploy.rb
 test/tmp
+.sass_cache/
