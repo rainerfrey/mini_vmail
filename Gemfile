@@ -21,7 +21,7 @@ group :assets do
 end
 
 group :development do
-	gem 'sqlite3-ruby', :require => 'sqlite3'
+	gem 'sqlite3'
 	gem 'thin'
 	gem 'capistrano'
 	gem 'capistrano_rsync_with_remote_cache'
