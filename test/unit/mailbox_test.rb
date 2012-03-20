@@ -48,12 +48,12 @@ class MailboxTest < ActiveSupport::TestCase
     name = "myname"
     pass = "mypass"
     
-    mailbox = Mailbox.new(
-      :name => name,
-      :password => pass
-    )
-    assert mailbox.name == name
-    assert mailbox.password.nil?
+    assert_raise ActiveModel::MassAssignmentSecurity::Error do
+      mailbox = Mailbox.new(
+        :name => name,
+        :password => pass
+      )
+    end
   end
   
   test "password can be mass-assigned via virtual attribute" do
@@ -79,12 +79,13 @@ class MailboxTest < ActiveSupport::TestCase
     assert mailbox.valid?
     mailbox.update_attributes(:my_password =>pass2, :my_password_confirmation => "")
     assert mailbox.invalid?
-    debug mailbox.errors
-    assert mailbox.errors[:my_password].join('; ') == I18n.translate("activerecord.errors.messages.confirmation")
+    message= I18n.translate("errors.messages.confirmation", :my_password)
+    debug "#{mailbox.errors.to_a} <=> #{message}"
+    assert mailbox.errors[:my_password].join('; ') ==message
     
     mailbox.update_attributes(:my_password  => pass2, :my_password_confirmation => pass1)
     assert mailbox.invalid?
-    assert mailbox.errors[:my_password].join('; ') == I18n.translate("activerecord.errors.messages.confirmation")
+    assert mailbox.errors[:my_password].join('; ') == message
 
     # reset
     mailbox.password = pass1
