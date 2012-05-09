@@ -32,6 +32,7 @@ end
 group :test do
   gem 'mocha'
   gem 'turn', :require => false
+  gem 'simplecov', :require => false
 end
 
 group :production do
