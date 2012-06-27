@@ -1,13 +1,14 @@
 class Mailbox < ActiveRecord::Base
   belongs_to :domain, :inverse_of => :mailboxes
   scope :active, where(:active => true)
-  scope :ordered, order("active DESC, name ASC")
+  scope :ordered, order("mailboxes.active DESC, mailboxes.name ASC")
   scope :domain_id, lambda { |domain_id| where(:domain_id => domain_id)}
   scope :name_like, lambda { |name| where("mailboxes.name LIKE ?", "%#{name}%") } 
   
   validates_presence_of :name, :password, :domain
   validates_uniqueness_of :name, :scope => :domain_id
   validates_confirmation_of :my_password
+  validates :name, :format => { :with => /\A([^@\s]+)\z/}
   
   attr_protected :password
   
