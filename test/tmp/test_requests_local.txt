@@ -1,0 +1,17 @@
+curl -v -O -u rainer:rainer -H "Accept: application/json" http://localhost:3000/domains.json
+
+curl -v -O -u rainer:rainer -H "Accept: application/json" http://localhost:3000/mailboxes/1.json
+curl -v -O -u rainer:rainer -H "Accept: application/json" http://localhost:3000/forwards/1.json
+
+curl -v -O -u rainer:rainer -H "Accept: application/json" http://localhost:3000/mailboxes/new.json
+curl -v -O -u rainer:rainer -H "Accept: application/json" http://localhost:3000/forwards/new.json
+
+curl -v -O -u rainer:rainer -H "Accept: application/json" http://localhost:3000/mailboxes/1/edit.json
+curl -v -O -u rainer:rainer -H "Accept: application/json" http://localhost:3000/forwards/1/edit.json
+
+curl -v  -u rainer:rainer -H "Content-Type: application/json; charset=utf-8" -H "Accept: application/json" -X PUT --data-binary @edit.json http://localhost:3000/mailboxes/1.json
+curl -v  -u rainer:rainer -H "Content-Type: application/json; charset=utf-8" -H "Accept: application/json" -X PUT --data-binary @edit.json http://localhost:3000/forwards/1.json
+
+curl -v  -u rainer:rainer -H "Content-Type: application/json; charset=utf-8" -H "Accept: application/json" --data-binary @new.json http://localhost:3000/mailboxes/
+curl -v  -u rainer:rainer -H "Content-Type: application/json; charset=utf-8" -H "Accept: application/json" --data-binary @new.json http://localhost:3000/forwards/
+
