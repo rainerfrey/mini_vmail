@@ -9,6 +9,20 @@ class MailboxTest < ActiveSupport::TestCase
     assert mailbox.errors[:domain].any?
   end
   
+  test "name must be a valid email local part" do
+    mailbox = mailboxes(:mine)
+    orig_name = mailbox.name
+    mailbox.name = "rainer@home.mr-frey.de"
+    assert mailbox.invalid?
+  end
+  
+  test "name must not contain spaces" do
+    mailbox = mailboxes(:mine)
+    orig_name = mailbox.name
+    mailbox.name = "rainer home.mr-frey.de"
+    assert mailbox.invalid?
+  end
+  
   test "name must be unique within domain" do
     mine = mailboxes(:mine)
     mailbox = Mailbox.new(
@@ -78,6 +92,5 @@ class MailboxTest < ActiveSupport::TestCase
     mailbox.update_attributes(:my_password => pass2, :my_password_confirmation => pass2)
     assert mailbox.valid?
     assert mailbox.password == pass2
-    
   end
 end

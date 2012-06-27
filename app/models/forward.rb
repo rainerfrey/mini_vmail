@@ -8,7 +8,7 @@ class Forward < ActiveRecord::Base
   validates_presence_of :name, :domain, :destination
   
   scope :active, where(:active => true)
-  scope :ordered, order("active DESC, name ASC")
+  scope :ordered, order("forwards.active DESC, forwards.name ASC")
   scope :domain_id, lambda { |domain_id| where(:domain_id => domain_id)}
   scope :name_like, lambda { |name| where("forwards.name LIKE ?", "%#{name}%") } 
   

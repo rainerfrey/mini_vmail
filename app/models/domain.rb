@@ -8,7 +8,7 @@ class Domain < ActiveRecord::Base
   validates_presence_of :transport
   
   scope :active, where(:active => true)
-  scope :ordered, order("active DESC, name ASC")
+  scope :ordered, order("domains.active DESC, domains.name ASC")
   scope :name_like, lambda { |name| where("domains.name LIKE ?", "%#{name}%") } 
 
   def self.search(params={})
