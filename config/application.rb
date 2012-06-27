@@ -10,8 +10,8 @@ module MiniVmail
   module VERSION
     MAJOR=1
     MINOR=3
-    TINY=0
-    DATE="06.2011"
+    TINY=1
+    DATE="06.2012"
     STRING=[MAJOR,MINOR,TINY].join(".")
     DISPLAY="v#{STRING} - #{DATE}"
   end
