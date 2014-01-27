@@ -79,7 +79,7 @@ class MailboxTest < ActiveSupport::TestCase
     assert mailbox.valid?
     mailbox.update_attributes(:my_password =>pass2, :my_password_confirmation => "")
     assert mailbox.invalid?
-    message= I18n.translate("errors.messages.confirmation", :my_password)
+    message= I18n.translate("activerecord.errors.messages.confirmation", :my_password)
     debug "#{mailbox.errors.to_a} <=> #{message}"
     assert mailbox.errors[:my_password].join('; ') ==message
     
