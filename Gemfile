@@ -15,7 +15,7 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer'
+  gem 'therubyracer'
 
   gem 'uglifier', '>= 1.0.3'
 end
@@ -23,7 +23,7 @@ end
 group :development do
 	gem 'sqlite3'
 	gem 'thin'
-	gem 'capistrano'
+	gem 'capistrano', '~> 2.0'
 	gem 'capistrano_rsync_with_remote_cache'
   gem 'wirble'
   gem 'hirb'
