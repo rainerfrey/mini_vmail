@@ -68,3 +68,56 @@ The first user created during setup is an administrator account that can downloa
 
 The default transport is configured in `config/config.yml`, and is used as initial value for new domains. The other settings in `config.yml` may not be changed for now, as that would require code changes right now.
 Note that in the repository, `config.yml` and `database.yml` are not directly supplied, but the versions in config/deploy/ are copied to the server by capistrano. To run locally, copy these files to the config/ directory.
+
+
+## Server Setup with Debian 7 ##
+
+### Required Packages ###
+* Apache Web Server
+	* apache2-mpm-worker, apache-threaded-dev
+* Build requisites for Ruby, Passenger and Rails
+	* autoconf bison build-essential libssl-dev libyaml-dev libreadline6 libreadline6-dev zlib1g zlib1g-dev git-core libcurl4-openssl-dev nodejs
+* PostgreSQL:
+	* postgresql libpq-dev
+
+
+### Setup on Server ###
+* create user for deploying and running, with shell and SSH login with key auth
+	* `adduser deploy`
+	* configure passwordless sudo access for that user
+* perform following steps as that user: 
+* install rbenv and rubybuild (as rbenv-plugin)
+	* https://github.com/sstephenson/rbenv
+	* https://github.com/sstephenson/ruby-build
+* install ruby (2.0+) with rbenv (exact version should be updated)
+	* `rbenv install 2.0.0-p353`
+* set ruby version
+	* `rbenv global 2.0.0-p353`
+* install bundler and passenger gems 
+	* `gem install bundler passenger ; rbenv rehash`
+* install passenger apache module
+	* `passenger-install-apache2-module`
+	* save passenger apache config as `/etc/apache2/mods-available/passenger.load`
+	*  `a2enmod passenger && service apache2 restart`
+* create app base directory and make depoy user the owner
+	* `mkdir /var/www/apps/vmail`
+* create database user `mini_vmail`
+
+### First deployment ###
+* following deployment steps are done with capistrano from a client machine
+	* needs to have key-based ssh access to deploy user on target
+	* needs ruby with bundler locally
+* checkout mini_vmail repository (in branch to deploy) and cd into
+* execute `bundle install`
+	* installs capistrano and app libraries locally
+* copy `config/example.deploy.rb` to `config/deploy.rb`
+	* configure servername, usernames and domain name for target server
+	* configure branch or tag (either in variable `:branch`)
+* execute` bundle exec cap deploy:setup`
+	* this sets up all directories and config files
+	* prompts for database host and password
+* execute `bundle exec deploy:first`
+	* deploys application version 
+	* creates and initializes database
+	* creates apache vhost configuration and enables it
+* further updates are performed by `bundle exec deploy` 
