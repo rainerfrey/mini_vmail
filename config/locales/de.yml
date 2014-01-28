@@ -93,4 +93,10 @@ de:
             login: "admin"
             notes: "Administrator-Account für die Verwaltung von Benutzern. Es wird empfohlen, für die Verwaltung der Mailserver-daten weitere Nutzer anzulegen."
 
-        
+    views:
+        pagination:
+            first: "&laquo; Erste"
+            last: "Letzte &raquo;"
+            previous: "&lsaquo; Zurück"
+            next: "Weiter &rsaquo;"
+            truncate: "..."
