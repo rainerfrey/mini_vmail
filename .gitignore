@@ -9,3 +9,4 @@ config/deploy.rb
 test/tmp
 .sass_cache/
 coverage
+public/assets
